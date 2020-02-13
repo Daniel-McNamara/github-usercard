@@ -81,7 +81,17 @@ function createCard(github) {
       userFollowers = document.createElement('p'),
       userFollowing = document.createElement('p'),
       userBio = document.createElement('p')
+
+      /*new*/
+  const expandButton = document.createElement('span');
+/*new*/
+  expandButton.classList.add('expandButton');
+
   
+/*new*/
+  expandButton.textContent = "expand";
+
+
   card.classList.add('card');
   img.src = github.avatar_url;
   cardInfo.classList.add('card-info');
@@ -107,7 +117,17 @@ function createCard(github) {
     cardInfo.append(userFollowers);
     cardInfo.append(userFollowing);
     cardInfo.append(userBio);
+    /*new
+    article.append(expandButton);*/
+/*new
+    expandButton.addEventListener('click', (event) => {
+      article.classList.toggle('article-open');
+      expandButton.textContent = 'expand';
 
+      if (article.classList.contains('article-open')) {
+        expandButton.textContent = 'collapse';
+      }
+    });*/
 
   img.addEventListener('click', (event) => {
     card.classList.toggle('card--opened');
@@ -115,7 +135,7 @@ function createCard(github) {
 
     console.log(event.target.parentElement);
 
-    if (event.target.parentElement.classList.contains('card--opened')) {
+   if (event.target.parentElement.classList.contains('card--opened')) {
       gsap.from(event.target.parentElement, {
         duration: 0.75,
         scale: 0,
